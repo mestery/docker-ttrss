@@ -1,4 +1,4 @@
-FROM kdelfour/supervisor-docker
+FROM root/supervisor-docker
 # Initially was based on work of Christian Lück <christian@lueck.tv>
 MAINTAINER Andreas Löffler <andy@x86dev.com>
 
@@ -27,6 +27,7 @@ EXPOSE 443
 ENV DB_NAME ttrss
 ENV DB_USER ttrss
 ENV DB_PASS ttrss
+ENV TTRSS_SSL_ENABLED 1
 
 # always re-configure database with current ENV when RUNning container, then monitor all services
 RUN mkdir -p /srv
