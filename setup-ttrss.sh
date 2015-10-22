@@ -34,7 +34,7 @@ setup_ttrss()
     TTRSS_PATH=/var/www/ttrss
 
     mkdir -p ${TTRSS_PATH}
-    git clone https://tt-rss.org/gitlab/fox/tt-rss.git ${TTRSS_PATH}
+    git clone https://github.com/mestery/tt-rss.git ${TTRSS_PATH}
     git clone https://github.com/sepich/tt-rss-mobilize.git ${TTRSS_PATH}/plugins/mobilize
     git clone https://github.com/hrk/tt-rss-newsplus-plugin.git ${TTRSS_PATH}/plugins/api_newsplus
     git clone https://github.com/levito/tt-rss-feedly-theme.git ${TTRSS_PATH}/themes/feedly-git

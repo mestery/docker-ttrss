@@ -28,6 +28,7 @@ ENV DB_NAME ttrss
 ENV DB_USER ttrss
 ENV DB_PASS ttrss
 ENV TTRSS_SSL_ENABLED 1
+ENV TTRSS_GIT 1
 
 # always re-configure database with current ENV when RUNning container, then monitor all services
 RUN mkdir -p /srv
