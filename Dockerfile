@@ -1,6 +1,6 @@
 # Using https://github.com/smebberson/docker-alpine, which in turn
 # uses https://github.com/just-containers/s6-overlay for a s6 Docker overlay
-FROM smebberson/alpine-base
+FROM armhf/alpine
 # Initially was based on work of Christian Lück <christian@lueck.tv>
 LABEL description="A complete, self-hosted Tiny Tiny RSS (TTRSS) environment." \
       maintainer="Andreas Löffler <andy@x86dev.com>"
@@ -25,6 +25,8 @@ EXPOSE 4443
 ENV DB_NAME ttrss
 ENV DB_USER ttrss
 ENV DB_PASS ttrss
+ENV TTRSS_SSL_ENABLED 1
+ENV TTRSS_GIT 1
 
 # only run the setup once
 RUN set -xe && /srv/setup-ttrss.sh

@@ -48,7 +48,7 @@ setup_ttrss()
 
     if [ ! -d ${TTRSS_PATH} ]; then
         mkdir -p ${TTRSS_PATH}
-        git clone --depth=1 https://tt-rss.org/gitlab/fox/tt-rss.git ${TTRSS_PATH}
+        git clone -b new-armhf --depth=1 https://github.com/mestery/tt-rss.git ${TTRSS_PATH}
         git clone --depth=1 https://github.com/sepich/tt-rss-mobilize.git ${TTRSS_PATH}/plugins/mobilize
         git clone --depth=1 https://github.com/hrk/tt-rss-newsplus-plugin.git ${TTRSS_PATH}/plugins/api_newsplus
         git clone --depth=1 https://github.com/m42e/ttrss_plugin-feediron.git ${TTRSS_PATH}/plugins/feediron
@@ -59,7 +59,7 @@ setup_ttrss()
     cp ${TTRSS_PATH}/config.php-dist ${TTRSS_PATH}/config.php
 
     # Patch URL path.
-    sed -i -e 's@htt.*/@'"${SELF_URL_PATH-http://localhost/}"'@g' ${TTRSS_PATH}/config.php
+    sed -i -e "/'SELF_URL_PATH'/s/ '.*'/ 'https\:\/\/rss\.mestery\.com\/'/" ${TTRSS_PATH}/config.php
 
     # Enable additional system plugins: api_newsplus.
     sed -i -e "s/.*define('PLUGINS'.*/define('PLUGINS', 'api_newsplus, auth_internal, note, updater');/g" ${TTRSS_PATH}/config.php
